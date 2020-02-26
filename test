@@ -9,6 +9,8 @@ result_file = "test_output"
 result_file_type = ".xlsx"
 
 df = pd.read_excel(path + master_file + file_type, sheet_name = "Sheet1", header = None)
+
+#Abover, you can give usecols argument if you knowwhat exact columns you are going to parse. Let's assume that we don't know the columns that we want to work on our dataframe.
 input_number = len(df.columns)
 def arange_size(x, y):
     x = x.iloc[:, 0:y]
@@ -35,6 +37,8 @@ repeat_num = len(df)
 raw_persons = pd.DataFrame(persons.repeat(repeat_num))
 raw_persons.rename(columns = {0: "email"}, inplace = True)
 raw_data = pd.concat([raw_persons, new_df], axis = 1)
+
+#Here is optional.
 
 def user_option(subtraction):
     while True:
